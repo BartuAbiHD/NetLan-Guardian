@@ -1,0 +1,14 @@
+scapy>=2.5.0
+# netfilterqueue>=0.8.1  # Windows'ta sorunlu, alternatif kullanacağız
+psutil>=5.9.0
+requests>=2.28.0
+colorama>=0.4.6
+pyyaml>=6.0
+ipaddress>=1.0.23
+pillow>=10.0.0
+pystray>=0.19.0
+packaging>=23.0
+pyinstaller>=5.0.0
+# Windows için alternatif paketler
+pywin32>=306 ; sys_platform == "win32"
+# wintun>=0.0.3 ; sys_platform == "win32"  # Bu paket bulunamıyor, devre dışı

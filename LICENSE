@@ -1,6 +1,6 @@
-MIT License
+MIT License with Attribution Requirements
 
-Copyright (c) 2025 BAHD
+Copyright (c) 2025 NetLan Guardian Project Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12,6 +12,21 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
+ATTRIBUTION REQUIREMENTS:
+1. Any distribution, modification, or derivative work of this Software must 
+   prominently display attribution to the original "NetLan Guardian" project
+   and its contributors.
+
+2. Commercial use or redistribution under a different name requires explicit
+   written permission from the original project maintainers.
+
+3. Claiming ownership of the original work or presenting substantial portions
+   of this Software as original work without proper attribution is strictly
+   prohibited.
+
+4. Fork projects and derivatives must clearly indicate their relationship to
+   the original NetLan Guardian project in their documentation and interfaces.
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -19,3 +34,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+THIRD PARTY COMPONENTS:
+This software integrates with GoodbyeDPI and Zapret, which are distributed
+under their respective licenses. Users must comply with the licensing terms
+of these components when using this software.
+
+CONTRIBUTION GUIDELINES:
+By contributing to this project, you agree that your contributions will be
+licensed under the same terms as this license.
