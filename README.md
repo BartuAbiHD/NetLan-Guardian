@@ -118,7 +118,7 @@ colors = {
 ### ⚡ Kurulum
 ```bash
 # 1. Proje dizinine git
-cd "DPI_Program"
+cd "NetLan-Guardian-main"
 
 # 2. Virtual environment oluştur ve aktifleştir
 python -m venv .venv
@@ -402,3 +402,4 @@ Detaylar için [LICENSE](LICENSE) dosyasını okuyun.
 ![GitHub last commit](https://img.shields.io/github/last-commit/BartuAbiHD/NetLan-Guardian)
 ![GitHub issues](https://img.shields.io/github/issues/BartuAbiHD/NetLan-Guardian)
 ![GitHub stars](https://img.shields.io/github/stars/BartuAbiHD/NetLan-Guardian)
+
