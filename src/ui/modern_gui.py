@@ -23,15 +23,15 @@ class UltraModernDPIGUI:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("🌐 NetLan Guardian")
-        self.root.geometry("1200x800")
-        self.root.minsize(800, 600)  # Daha küçük minimum boyut
+        self.root.geometry("1200x950")
+        self.root.minsize(1200, 950)  # Daha küçük minimum boyut
         self.root.configure(bg='#0F0F0F')
         
         # Responsive variables
         self.screen_width = self.root.winfo_screenwidth()
         self.screen_height = self.root.winfo_screenheight()
         self.current_width = 1200
-        self.current_height = 800
+        self.current_height = 950
         
         # Bind resize event
         self.root.bind('<Configure>', self.on_window_resize)
@@ -113,7 +113,7 @@ class UltraModernDPIGUI:
             },
             'Kick': {
                 'icon': '⚡', 
-                'domains': ['kick.com', 'kick.stream', 'cdn.kick.com', 'assets.kick.com', 'live-video.net', 'global-contribute.live-video.net'], 
+                'domains': ['kick.com', 'kick.stream', 'cdn.kick.com', 'assets.kick.com', 'live-video.net', 'global-contribute.live-video.net', 'playlist.live-video.net'], 
                 'color': '#53FC18', 
                 'category': 'media'
             },
@@ -197,6 +197,9 @@ class UltraModernDPIGUI:
         
         # Responsive elementleri ayarla
         self.adjust_responsive_elements()
+        
+        # DPI bypass'ın mevcut durumunu kontrol et
+        self.root.after(50, self.check_bypass_status)
         
         # Platform displayini de güncelle - biraz gecikmeyle
         self.root.after(100, self.update_platform_display)
@@ -798,6 +801,16 @@ class UltraModernDPIGUI:
                                    command=self.stop_bypass)
         self.stop_button.pack(side='right', padx=5, ipadx=20)
         
+    def update_control_buttons_state(self):
+        """DPI bypass durumuna göre kontrol butonlarının durumunu güncelle"""
+        if hasattr(self, 'start_button') and hasattr(self, 'stop_button'):
+            if self.bypass_active:
+                self.start_button.configure(state='disabled')
+                self.stop_button.configure(state='normal')
+            else:
+                self.start_button.configure(state='normal')
+                self.stop_button.configure(state='disabled')
+        
     def create_settings_page(self):
         """Ayarlar sayfası - Responsive"""
         self.settings_frame = tk.Frame(self.root, bg=self.colors['bg_primary'])
@@ -1328,8 +1341,9 @@ class UltraModernDPIGUI:
         # Yeni sayfayı oluştur
         if page == 'main':
             self.create_main_page()
-            # Platform displayini güncelle
-            self.root.after(50, self.update_platform_display)
+            # Bypass durumunu kontrol et ve ardından diğer güncellemeleri yap
+            self.root.after(50, self.check_bypass_status)
+            self.root.after(100, self.update_platform_display)
         elif page == 'settings':
             self.create_settings_page()
             # Ayarlar sayfası oluşturulduktan sonra config'i yükle
@@ -1894,6 +1908,24 @@ class UltraModernDPIGUI:
         
         return image
     
+    def check_bypass_status(self):
+        """Program başlangıcında DPI bypass durumunu kontrol et"""
+        try:
+            # DPI bypass'ın gerçekten çalışıp çalışmadığını kontrol et
+            if hasattr(self.dpi_bypass, 'active') and self.dpi_bypass.active:
+                self.bypass_active = True
+                self.update_control_buttons_state()
+                self.update_status()
+            else:
+                self.bypass_active = False
+                self.update_control_buttons_state()
+                self.update_status()
+        except Exception as e:
+            # Hata durumunda varsayılan olarak false kabul et
+            self.bypass_active = False
+            self.update_control_buttons_state()
+            self.update_status()
+
     def setup_tray(self):
         """System tray kurulumu"""
         if self.tray_icon:
