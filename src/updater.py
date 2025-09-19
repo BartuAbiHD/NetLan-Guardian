@@ -20,7 +20,7 @@ import threading
 import time
 
 class UpdateManager:
-    def __init__(self, current_version: str = "1.0.0"):
+    def __init__(self, current_version: str = "1.0.1"):
         self.github_api_url = "https://api.github.com/repos/BartuAbiHD/NetLan-Guardian"
         self.github_repo_url = "https://github.com/BartuAbiHD/NetLan-Guardian"
         self.current_version = current_version
@@ -233,7 +233,7 @@ def get_current_version() -> str:
     if os.path.exists(version_file):
         with open(version_file, 'r', encoding='utf-8') as f:
             return f.read().strip()
-    return "1.0.0"
+    return "1.0.1"
 
 # Test fonksiyonu
 if __name__ == "__main__":
